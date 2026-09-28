@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Jishitha Kodali | Portfolio</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:#060816;color:#fff;overflow-x:hidden}
+canvas{position:fixed;inset:0;z-index:-1}
+nav{position:fixed;top:0;width:100%;display:flex;justify-content:space-between;padding:18px 8%;background:rgba(8,10,24,.45);backdrop-filter:blur(12px);z-index:99}
+nav a{color:#fff;text-decoration:none;margin-left:18px}
+.hero{height:100vh;display:grid;place-items:center;text-align:center}
+.glass{background:rgba(255,255,255,.08);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:28px;box-shadow:0 0 30px rgba(0,200,255,.15)}
+.avatar{width:130px;height:130px;border-radius:50%;margin:auto;background:linear-gradient(135deg,#00d4ff,#7b61ff);display:grid;place-items:center;font-size:44px;font-weight:bold;animation:f 5s ease-in-out infinite}
+h1{font-size:54px}h2{color:#74e7ff;margin-bottom:14px}
+#type{min-height:32px;color:#b7d9ff}
+.btn{display:inline-block;padding:12px 22px;margin-top:18px;border-radius:999px;background:linear-gradient(90deg,#00d4ff,#7b61ff);color:#fff;text-decoration:none}
+section{max-width:1100px;margin:auto;padding:90px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{transition:.2s;transform-style:preserve-3d}
+.skill{height:10px;background:#24314f;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#00d4ff,#7b61ff)}
+.timeline{border-left:2px solid #6cf;padding-left:18px}.item{margin:22px 0}
+.reveal{opacity:0;transform:translateY(25px);transition:1s}.reveal.show{opacity:1;transform:none}
+.top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border:none;border-radius:50%;background:#74e7ff;display:none}
+footer{text-align:center;padding:30px;color:#9ab}
+@keyframes f{50%{transform:translateY(-12px)}}
+</style></head>
+<body>
+<canvas id='bg'></canvas>
+<nav><b>JISHITHA</b><div><a href='#about'>About</a><a href='#skills'>Skills</a><a href='#education'>Education</a><a href='#projects'>Projects</a><a href='#contact'>Contact</a></div></nav>
+<header class='hero'><div class='glass card'><div class='avatar'>JK</div><h1>Jishitha Kodali</h1><h2 id='type'></h2><p>A passionate web developer who loves creating modern, responsive and interactive websites using HTML, CSS & JavaScript.</p><a class='btn' href='#projects'>Explore My Work</a></div></header>
+
+<section id='about' class='reveal'><h2>About Me</h2><div class='glass'><p>I'm a B.Tech student with strong front-end development and programming skills. I enjoy designing beautiful user interfaces, building responsive websites, and learning modern web technologies. My goal is to become a professional Full Stack Web Developer.</p></div></section>
+
+<section id='skills' class='reveal'><h2>Technical Skills</h2><div class='grid'>
+<div class='glass card'><h3>HTML5</h3><p>Semantic, accessible & responsive layouts</p><div class='skill'><div class='fill' style='width:95%'></div></div></div>
+<div class='glass card'><h3>CSS3</h3><p>Flexbox, Grid, Animations & 3D UI</p><div class='skill'><div class='fill' style='width:92%'></div></div></div>
+<div class='glass card'><h3>JavaScript</h3><p>DOM, Events & Interactive websites</p><div class='skill'><div class='fill' style='width:88%'></div></div></div>
+<div class='glass card'><h3>Programming</h3><p>Java, C & Problem Solving</p><div class='skill'><div class='fill' style='width:85%'></div></div></div>
+</div></section>
+
+<section id='education' class='reveal'><h2>Education</h2><div class='glass timeline'>
+<div class='item'><h3>Bachelor of Technology (B.Tech)</h3><p>Computer Science Engineering • Currently Pursuing</p></div>
+<div class='item'><h3>Intermediate</h3><p>Completed in 2022–2023 with 940 marks</p></div>
+<div class='item'><h3>Secondary School</h3><p>Completed with a strong academic foundation</p></div>
+</div></section>
+
+<section id='projects' class='reveal'><h2>Featured Projects</h2><div class='grid'>
+<div class='glass card'><h3>3D Portfolio</h3><p>Immersive cyberpunk portfolio with animations.</p></div>
+<div class='glass card'><h3>Responsive Landing Page</h3><p>Modern mobile-first website using HTML & CSS.</p></div>
+<div class='glass card'><h3>JavaScript Interactive App</h3><p>Dynamic UI with DOM manipulation and validation.</p></div>
+</div></section>
+
+<section id='contact' class='reveal'><h2>Contact Me</h2><div class='glass'><p>📧 youremail@example.com</p><p>📍 Andhra Pradesh, India</p><p>💻 Available for Web Development Projects</p></div></section>
+
+<footer>© 2026 Jishitha Kodali • Designed with HTML, CSS & JavaScript</footer>
+<button class='top' id='top'>↑</button>
+<script>
+const txt='Frontend Developer • UI/UX Enthusiast';let i=0;(()=>{const t=()=>{if(i<txt.length){type.textContent+=txt[i++];setTimeout(t,60)}};t()})();
+const io=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('show')));document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.querySelectorAll('.card').forEach(c=>{c.onmousemove=e=>{const r=c.getBoundingClientRect(),x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;c.style.transform=`rotateX(${-y/20}deg) rotateY(${x/20}deg)`};c.onmouseleave=()=>c.style.transform='rotateX(0) rotateY(0)'});
+top.onclick=()=>scrollTo({top:0,behavior:'smooth'});addEventListener('scroll',()=>top.style.display=scrollY>300?'block':'none');
+const ctx=bg.getContext('2d');function rs(){bg.width=innerWidth;bg.height=innerHeight}rs();onresize=rs;const p=[...Array(120)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,s:Math.random()*2+1}));(function a(){ctx.clearRect(0,0,bg.width,bg.height);ctx.fillStyle='#6cf';p.forEach(o=>{o.y+=o.s;if(o.y>bg.height)o.y=0;ctx.globalAlpha=.25;ctx.beginPath();ctx.arc(o.x,o.y,o.s,0,6.28);ctx.fill()});requestAnimationFrame(a)})();
+</script></body></html>
